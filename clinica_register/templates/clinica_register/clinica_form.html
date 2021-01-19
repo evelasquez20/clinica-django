@@ -6,7 +6,25 @@
 <form action="" method="POST" autocomplete="off">
 
     {% csrf_token %}
-    {{form|crispy}}
+    <div class="row">
+        <div class="col-md-12">
+            {{form.nombre_medico|as_crispy_field}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            {{form.jvpm|as_crispy_field}}
+        </div>
+        <div class="col-md-6">
+            {{form.fecha_nacimiento|as_crispy_field}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            {{form.especialidad|as_crispy_field}}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Agregar</button>
 
 </form>
 
