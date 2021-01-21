@@ -24,7 +24,16 @@
             {{form.especialidad|as_crispy_field}}
         </div>
     </div>
-    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Agregar</button>
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-success btn-block"><i class="fas fa-save"></i> Agregar</button>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'clinica_list' %}" class="btn btn-secondary btn-block">
+                <i class="fas fa-arrow-left"></i> Regresar
+            </a>
+        </div>
+    </div>
 
 </form>
 

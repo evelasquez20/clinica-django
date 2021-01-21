@@ -1,0 +1,40 @@
+{% extends "clinica_register/base.html" %}
+
+{% block content %}
+
+    <a href="{% url 'clinica_insert' %}" class="btn btn-outline-success float-right">
+        <i class="fas fa-plus"></i> Nuevo
+    </a>
+
+    <table class="table table-borderless">
+        <thead class="border-bottom font-weight-bold">
+            <tr>
+                <td>Nombre</td>
+                <td>Codigo JPVM</td>
+                <td>Fecha de Nacimiento</td>
+                <td>Especialidad</td>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medico in clinica_list %}
+                <td>{{medico.nombre_medico}}</td>
+                <td>{{medico.jvpm}}</td>
+                <td>{{medico.fecha_nacimiento}}</td>
+                <td>{{medico.especialidad}}</td>
+                <td>
+                    <a href="{% url 'clinica_update' medico.id %}" class="btn text-secondary px-0">
+                        <i class="far fa-edit fa-lg"></i>
+                    </a>
+                    <form action="{% url 'clinica_delete' medico.id %}" method="POST" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">
+                            <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                        </button>
+                    </form>
+                </td>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

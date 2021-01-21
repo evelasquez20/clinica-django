@@ -1,3 +1,4 @@
+from bootstrap_datepicker_plus import DatePickerInput, TimePickerInput, DateTimePickerInput, MonthPickerInput, YearPickerInput
 from django import forms
 from .models import Medicos
 
@@ -17,3 +18,4 @@ class MedicosForm(forms.ModelForm):
         super(MedicosForm, self).__init__(*args, **kwargs)
         self.fields['especialidad'].empty_label = "Seleccione"
         self.fields['fecha_nacimiento'].required = False
+        
